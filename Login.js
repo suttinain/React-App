@@ -1,76 +1,63 @@
 import React, {useState} from 'react'
-import { SafeAreaView, Text, StyleSheet, Button, StatusBar, TextInput }
+import { SafeAreaView, Text, StyleSheet, Button, StatusBar, TextInput, View }
     from 'react-native'
-const Login = ({ navigation }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    return (
+const MainPage = ({route}) => {
+    return(
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>DogeCoin</Text>
-            <TextInput
-                autoCapitalize="none"
-                placeholder="Username"
-                style={styles.input}
-                keyboardType="default"
-                value={username}
-                onChangeText={
-                (text) => setUsername(text)
-            }
-            />
-            <TextInput
-                autoCapitalize="none"
-                placeholder="Password"
-                style={styles.input}
-                keyboardType="default"
-                secureTextEntry
-                value={password}
-                onChangeText={setPassword}
-            />
-            <Button
-                title="Register"
-                onPress={
-                () => navigation.navigate('Register')
-            }
-            />
-            <Button
-                title="Log in"
-                onPress={() => console.log(email, password)}
-            />
+            <Text style={styles.wel}>Welcome {route.params.paramKey}!</Text>
+            <View
+            style={{
+                flexDirection: "row",
+                justifyContent: 'space-around',
+                flexWrap: 'wrap',
+                padding: 20,
+            }}
+            >
+            <View style={{ backgroundColor: "powderblue", width: 300, height: 300, flex: 0.4, justifyContent: 'center' }}>
+                <Text style={styles.s1}>Profile</Text>
+            </View>
+            <View style={{ backgroundColor: "lightgreen", width: 300, height: 300, flex: 0.4, justifyContent: 'center'  }}>
+                <Text style={styles.s1}>Search for Recipes</Text>
+            </View>
+            </View>
+            <View
+            style={{
+                flexDirection: "row",
+                justifyContent: 'space-around',
+                flexWrap: 'wrap',
+                padding: 20,
+            }}
+            >
+            <View style={{ backgroundColor: "lightgreen", width: 300, height: 300, flex: 0.4, justifyContent: 'center' }}>
+                <Text style={styles.s1}>My Recipes</Text>
+            </View>
+            <View style={{ backgroundColor: "powderblue", width: 300, height: 300, flex: 0.4, justifyContent: 'center'  }}>
+                <Text style={styles.s1}>Settings</Text>
+            </View>
+            </View>
         </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: 'pink',
+        justifyContent: 'flex-start',
         paddingTop: StatusBar.currentHeight,
     },
-    body: {
-        fontSize: 30,
-    },
-    form: {
-        marginTop: "0%",
-        backgroundColor: '#fff',
-        alignItems: 'center',
-    },
-    input: {
-        borderBottomWidth: 1,
-        borderBottomColor: "#057dfe",
-        paddingBottom: 5,
-        fontSize: 15,
-        margin: 10,
-        padding: 15,
-        textAlign: 'left',
-    },
-    title:{
-        textAlign: 'center',
+    wel:{
+        fontSize: 20,
+        color: "grey",
+        alignSelf: 'flex-start',
+        padding: 10,
         fontWeight: 'bold',
-        paddingBottom: 30,
-        fontSize: 40,
-        margin: 10,
-        color: 'orange'
+    },
+    s1:{
+        fontSize: 20,
+        color: "yellow",
+        alignSelf: 'center',
+        padding: 10,
+        fontWeight: 'bold',
     }
 });
-export default Login;
+export default MainPage;
