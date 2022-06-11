@@ -5,5 +5,7 @@
   <li>Create Log in Page &#10004</li>
   <li>Create Register Page &#10004</li>
   <li>Create Navigation between Log in and Register &#10004 </li>
+  <li>Create Main Page &#10004</li>
   <li>Create Database for Register System</li>
+  <li>Implement Google Search</li>
 </ul>
