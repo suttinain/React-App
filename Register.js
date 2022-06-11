@@ -8,7 +8,7 @@ const Register = ({ navigation }) => {
     const [password, setPassword] = useState('');
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.body}>Register</Text>
+            <Text style={styles.title}>Register</Text>
             <TextInput
                 autoCapitalize="none"
                 placeholder="Name"
@@ -46,12 +46,16 @@ const Register = ({ navigation }) => {
                 keyboardType="default"
                 secureTextEntry
                 value={password}
-                onChangeText={setPassword}
+                onChangeText={
+                    (text)=> setPassword(text)
+                }
             />
             <Button
                 title="Done"
                 onPress={
-                () => navigation.goBack()
+                () => navigation.navigate('MainPage', {
+                    paramKey: name,
+                })
                 }
             />
         </SafeAreaView>
@@ -60,13 +64,10 @@ const Register = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'lightblue',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: StatusBar.currentHeight,
-    },
-    body: {
-        fontSize: 30,
     },
     input: {
         borderBottomWidth: 1,
@@ -77,5 +78,13 @@ const styles = StyleSheet.create({
         padding: 15,
         textAlign: 'left',
     },
+    title:{
+        textAlign: 'center',
+        fontWeight: 'bold',
+        paddingBottom: 30,
+        fontSize: 40,
+        margin: 10,
+        color: 'gold'
+    }
 });
 export default Register;
