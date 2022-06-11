@@ -5,6 +5,7 @@ import { NavigationContainer }
     from '@react-navigation/native';
 import Login from './screens/Login';
 import Register from './screens/Register';
+import MainPage from './screens/MainPage';
 const Stack = createStackNavigator();
 export default function App() {
     return (
@@ -17,6 +18,10 @@ export default function App() {
                 <Stack.Screen
                     name="Register"
                     component={Register}
+                />
+                <Stack.Screen
+                    name="MainPage"
+                    component={MainPage}
                 />
             </Stack.Navigator>
         </NavigationContainer>
